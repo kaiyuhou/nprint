@@ -1,6 +1,6 @@
 ![nPrint](nprint.png)
 
-nPrint is a standard data representation for network traffic meant to be directly usable with machine learning algorithms, replacing feature engineering for a wide array of traffic analysis problems. We highly encourage you to read the [original nPrint paper.](https://arxiv.org/abs/2008.02695). This page is meant as a high level overview of the system. For more advanced usage and details see the [wiki.](https://github.com/nprint/nprint/wiki)
+nPrint is a standard data representation for network traffic meant to be directly usable with machine learning algorithms, replacing feature engineering for a wide array of traffic analysis problems. We highly encourage you to read the [original nPrint paper.](https://arxiv.org/abs/2008.02695) This page is meant as a high level overview of the system. For more advanced usage and details see the [wiki.](https://github.com/nprint/nprint/wiki)
 
 ## Installation 
 
