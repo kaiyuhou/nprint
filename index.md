@@ -56,25 +56,25 @@ nprint -i -w test.npt -f icmp
 * Read from a PCAP and create a nPrint of the first 20 payload bytes for each packet to stdout:
 
 ```
-nprint -r test.pcap -p 20 
+nprint -P test.pcap -p 20 
 ```
 
 * Take a nPrint file and reverse it into a PCAP
 
 ```
-nprint -r test.npt -z -w test.pcap
+nprint -N test.npt -w test.pcap
 ```
 
 * Include a relative timestamp for each packet, capturing timeseries information:
 
 ```
-nprint --relative_timestamps -4 -t 
+nprint -R -4 -t 
 ```
 
-* Read output from a Zmap scan in hex-encoded format:
+* Read output from a csv file in hex-encoded format:
 
 ```
-nprint -r zmap_scan.csv -4 -t -u -i -p 50 -w zmap_scan.npt
+nprint -C zmap_scan.csv -4 -t -u -i -p 50 -w zmap_scan.npt
 ```
 
 The full list of options are below, and can be found by running: `nprint --help` 
@@ -82,19 +82,20 @@ The full list of options are below, and can be found by running: `nprint --help`
 ```
   -4, --ipv4                 include ipv4 headers
   -6, --ipv6                 include ipv6 headers
+  -c, --count=INTEGER        number of packets to parse (if not all)
+  -C, --csv_file=FILE        csv (hex packets) infile
+  -d, --device=STRING        device to capture from if live capture
   -f, --filter=STRING        filter for libpcap
-      --fields_output        output field values instead of bitstrings
   -i, --icmp                 include icmp headers
-  -n, --num_packets=INTEGER  number of packets to parse (if not all)
-  -o, --outfile=FILE         file for output, else stdout
-  -p, --payload=PAYLOAD_SIZE include n bytes of payload
-  -q, --ip_file=FILE         file of IP addresses to filter with, can be
+  -I, --ip_file=FILE         file of IP addresses to filter with, can be
                              combined with num_packets for num_packets per ip
-  -r, --read_file=FILE       file to read from, either PCAP or hex packets
-      --relative_timestamps  include relative timestamp field
+  -N, --nPrint_file=FILE     nPrint infile
+  -p, --payload=PAYLOAD_SIZE include n bytes of payload
+  -P, --pcap_file=FILE       pcap infile
+  -R, --relative_timestamps  include relative timestamp field
   -t, --tcp                  include tcp headers
   -u, --udp                  include udp headers
-  -z, --reverse              reverse nPrint to PCAP
+  -w, --write_file=FILE      file for output, else stdout
   -?, --help                 Give this help list
       --usage                Give a short usage message
   -V, --version              Print program version
