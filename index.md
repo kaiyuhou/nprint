@@ -7,6 +7,7 @@ nPrint is a standard data representation for network traffic meant to be directl
 ### Requirements
 
 * libpcap
+* argp
 
 ### Supported Operating Systems
 
