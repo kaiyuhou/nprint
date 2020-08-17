@@ -11,11 +11,11 @@ nPrint is a standard data representation for network traffic meant to be directl
 ### Supported Operating Systems
 
 * Linux
-* MacOS (coming soon)
+* MacOS 
 
 ### Install
 
-download the latest release, extract and
+Make sure you have the dependencies installed (libpcap, argp), download the latest release, extract and
 ```
 ./configure && make && make install
 ```
@@ -44,13 +44,13 @@ nprint -4 -t
 * Collect traffic in real time and print IPv4 / TCP nPrints to file
 
 ```
-nprint -4 -t -w test.npt 
+nprint -4 -t -W test.npt 
 ```
 
 * Use BPF filters to filter traffic before nPrint: ICMP nPrints with incoming traffic filtered for ICMP only.
 
 ```
-nprint -i -w test.npt -f icmp 
+nprint -i -W test.npt -f icmp 
 ```
 
 * Read from a PCAP and create a nPrint of the first 20 payload bytes for each packet to stdout:
@@ -59,10 +59,10 @@ nprint -i -w test.npt -f icmp
 nprint -P test.pcap -p 20 
 ```
 
-* Take a nPrint file and reverse it into a PCAP
+* Take nPrint file and reverse it into a PCAP
 
 ```
-nprint -N test.npt -w test.pcap
+nprint -N test.npt -W test.pcap
 ```
 
 * Include a relative timestamp for each packet, capturing timeseries information:
@@ -74,7 +74,7 @@ nprint -R -4 -t
 * Read output from a csv file in hex-encoded format:
 
 ```
-nprint -C zmap_scan.csv -4 -t -u -i -p 50 -w zmap_scan.npt
+nprint -C zmap_scan.csv -4 -t -u -i -p 50 -W zmap_scan.npt
 ```
 
 The full list of options are below, and can be found by running: `nprint --help` 
@@ -87,15 +87,16 @@ The full list of options are below, and can be found by running: `nprint --help`
   -d, --device=STRING        device to capture from if live capture
   -f, --filter=STRING        filter for libpcap
   -i, --icmp                 include icmp headers
-  -I, --ip_file=FILE         file of IP addresses to filter with, can be
-                             combined with num_packets for num_packets per ip
+  -I, --ip_file=FILE         file of IP addresses to filter with (1 per line),
+                             can be combined with num_packets for num_packets
+                             per ip
   -N, --nPrint_file=FILE     nPrint infile
   -p, --payload=PAYLOAD_SIZE include n bytes of payload
   -P, --pcap_file=FILE       pcap infile
   -R, --relative_timestamps  include relative timestamp field
   -t, --tcp                  include tcp headers
   -u, --udp                  include udp headers
-  -w, --write_file=FILE      file for output, else stdout
+  -W, --write_file=FILE      file for output, else stdout
   -?, --help                 Give this help list
       --usage                Give a short usage message
   -V, --version              Print program version
